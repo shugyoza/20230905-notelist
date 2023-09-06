@@ -7,8 +7,9 @@ import { Note } from '../data/notes.interface';
   styleUrls: ['./list.component.less'],
 })
 export class ListComponent {
+  @Input() notes: Note[] = [];
+
   @Output() showNote = new EventEmitter();
   @Output() addNote = new EventEmitter();
   @Output() deleteNote = new EventEmitter();
-  @Input() notes: Note[] = [];
 }

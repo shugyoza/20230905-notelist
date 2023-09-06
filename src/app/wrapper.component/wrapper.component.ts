@@ -12,11 +12,10 @@ import { mock } from '../data/notes.mock';
 export class WrapperComponent implements OnInit {
   public notes: Note[] = [];
   public note: Note | null = null;
+  public isNewNote: boolean = true;
 
   public title = new FormControl({ value: '', disabled: true });
   public description = new FormControl({ value: '', disabled: true });
-
-  private isNewNote: boolean = true;
 
   ngOnInit() {
     this.notes = mock;
@@ -52,15 +51,16 @@ export class WrapperComponent implements OnInit {
           doc.description = this.description.value || '';
         }
       });
-      return;
     }
 
     // if it's a new note, add it to the notes
-    this.notes.push({
-      id: new Date().toString(),
-      title: this.title.value || '',
-      description: this.description.value || '',
-    });
+    else if (this.isNewNote) {
+      this.notes.push({
+        id: new Date().toString(),
+        title: this.title.value || '',
+        description: this.description.value || '',
+      });
+    }
 
     // reset input fields
     this.title.reset();
