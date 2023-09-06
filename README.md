@@ -1,5 +1,24 @@
 # 20230905Notelist
 
+## Requirements
+
+Create a Single Page App to store text notes in Angular;
+Each note contains two fields: title and contents;
+The application should allow users to add, view, edit and delete notes;
+Notes may be stored in memory. That is, the application does not need to store and reload notes if it is interrupted;
+One has to be able to run the application locally exclusively by running npm start, that is: if the application has any external dependencies, it should be resolved by the run script without manual intervention;
+
+Nice to have:
+
+- Providing an interface with enhanced usability;
+- Providing a persistence mechanism for notes, such as relational database, unstructured storage service, text files, etc.;
+- Good source code structure and organization;
+- Less code rather than more code;
+- Suitably commented code;
+- Writing additional text document providing deployment instructions, such as hosting environment, provisioning, configurations, etc. For this, you may pretend your application will be deployed in Azure;
+  Data/API
+  N/A
+
 ## User Stories
 
 - I want to have a noteList app that shows list of my notes title on the left side. On the right side, an input field for a note title, another input field for note description, a button to revert, and another button to save.
