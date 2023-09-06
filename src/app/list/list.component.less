@@ -1,0 +1,43 @@
+* {
+  font-family: sans-serif;
+  font-size: min(4rem, max(.875rem, 2vw));
+}
+
+.list-title {
+  display:  flex;
+}
+
+.note {
+  width: 80%;
+  border-bottom: 1px solid gray;
+}
+
+ul.list {
+  list-style: none;
+  display: inline; /* this is to remove the left margin in place of the list bullets */
+}
+
+.show-item {
+  width: 80%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid gray;
+  text-align: left;
+  &:hover {background-color: pink;}
+}
+
+.delete-item {
+  background-color: transparent;
+  color: red;
+  border: none;
+  border-bottom: 1px solid gray;
+  &:hover {background-color: powderblue;}
+}
+
+.add-item {
+  background-color: transparent;
+  color: green;
+  border: none;
+  border-bottom: 1px solid gray;
+  &:hover {background-color: lightgreen;}
+}

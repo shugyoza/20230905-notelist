@@ -1,1 +1,15 @@
-<p>list works!</p>
+<div class="list-wrapper">
+  <p class="list-title">
+    <span class="note"> Note </span>
+    <button class="add-item" (click)="addNote.emit()">+</button>
+  </p>
+
+  <ul role="list" class="list" *ngFor="let note of notes; index as i">
+    <li class="list-item">
+      <button class="show-item" (click)="showNote.emit(i)">
+        {{ note.title }}
+      </button>
+      <button class="delete-item" (click)="deleteNote.emit(i)">X</button>
+    </li>
+  </ul>
+</div>

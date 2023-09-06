@@ -1,0 +1,18 @@
+<div class="note-wrapper">
+  <div class="note-fieldset">
+    <input id="note-title" [formControl]="title" />
+    <textarea
+      id="note-description"
+      [formControl]="description"
+      [style.height.em]="textAreaHeight"
+    ></textarea>
+  </div>
+  <div class="buttons">
+    <button class="revert" (click)="revertInput.emit()" [disabled]="!note">
+      Revert
+    </button>
+    <button class="save" (click)="saveInput.emit()" [disabled]="!note">
+      Save
+    </button>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+* {
+  font-family: sans-serif;
+  font-size: min(4rem, max(.875rem, 2vw));
+}
+
+button:disabled {
+  background-color: lightgrey;
+  color: darkgray;
+  opacity: 1;
+}
+
+.note-wrapper,
+#note-description {
+  height: 100%;
+}
+
+.note-fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1em;
+  margin: 1em;
+  min-height: 12em !important
+}
+
+.buttons {
+  display: flex;
+  margin: 1em;
+  gap: 1em;
+}
+
+button {
+  padding: .3em;
+}
+
+.revert {
+  background-color: red;
+  color: white;
+}
+
+.save {
+  background-color: green;
+  color: white
+}

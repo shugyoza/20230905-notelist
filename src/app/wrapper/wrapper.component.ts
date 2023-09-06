@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NoteComponent } from '../note/note.component';
 
 const mock = [
   {
@@ -31,7 +32,7 @@ const mock = [
 })
 export class WrapperComponent {
   public notes: Note[] = mock;
-  public note!: Note;
+  public note: Note | null = null;
 
   public title = new FormControl({ value: '', disabled: true });
   public description = new FormControl({ value: '', disabled: true });
@@ -63,7 +64,7 @@ export class WrapperComponent {
     // if it's not a new note, update the existing note
     if (!this.isNewNote) {
       this.notes.find((doc) => {
-        if (doc.id === this.note.id) {
+        if (doc.id === this.note?.id) {
           doc.title = this.title.value || '';
           doc.description = this.description.value || '';
         }
@@ -78,12 +79,23 @@ export class WrapperComponent {
       description: this.description.value || '',
     });
 
-    // reset the input fields
+    // reset input fields
     this.title.reset();
     this.description.reset();
+    // disable input fields
+    this.title.disable();
+    this.description.disable();
+    // disable the revert and save buttons
+    this.note = null;
+    // reset isNewNote
+    this.isNewNote = true;
   }
 
   public revert(): void {
+    if (!this.note) {
+      return;
+    }
+
     this.title.setValue(this.note.title);
     this.description.setValue(this.note.description);
   }
@@ -106,6 +118,13 @@ export class WrapperComponent {
       title: '',
       description: '',
     };
+  }
+
+  public deleteNote(index: number): void {
+    this.notes = [
+      ...this.notes.slice(0, index),
+      ...this.notes.slice(index + 1),
+    ];
   }
 }
 
