@@ -1,43 +1,26 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { NoteComponent } from '../note/note.component';
 
-const mock = [
-  {
-    id: '1',
-    title: 'Title A',
-    description: 'Description A',
-  },
-  {
-    id: '2',
-    title: 'Title b',
-    description: 'Description B',
-  },
-  {
-    id: '3',
-    title: 'Title C',
-    description: 'Description C',
-  },
-  {
-    id: '4',
-    title: 'Title D',
-    description: 'Description D',
-  },
-];
+import { Note } from '../data/notes.interface';
+import { mock } from '../data/notes.mock';
 
 @Component({
   selector: 'app-wrapper',
   templateUrl: './wrapper.component.html',
   styleUrls: ['./wrapper.component.less'],
 })
-export class WrapperComponent {
-  public notes: Note[] = mock;
+export class WrapperComponent implements OnInit {
+  public notes: Note[] = [];
   public note: Note | null = null;
 
   public title = new FormControl({ value: '', disabled: true });
   public description = new FormControl({ value: '', disabled: true });
 
   private isNewNote: boolean = true;
+
+  ngOnInit() {
+    this.notes = mock;
+  }
 
   public showNote(index: number): void {
     // grab the note from list of notes at index
@@ -126,10 +109,4 @@ export class WrapperComponent {
       ...this.notes.slice(index + 1),
     ];
   }
-}
-
-export interface Note {
-  id: string;
-  title: string;
-  description: string;
 }

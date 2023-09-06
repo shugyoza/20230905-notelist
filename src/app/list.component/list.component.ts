@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Note } from '../wrapper/wrapper.component';
+import { Note } from '../data/notes.interface';
 
 @Component({
   selector: 'app-list',

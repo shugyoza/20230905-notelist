@@ -6,8 +6,9 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Note } from '../wrapper/wrapper.component';
 import { FormControl } from '@angular/forms';
+
+import { Note } from '../data/notes.interface';
 
 @Component({
   selector: 'app-note',
