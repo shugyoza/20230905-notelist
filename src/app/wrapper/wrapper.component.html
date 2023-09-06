@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div>
+    <p>
+      Note<span><button (click)="addNote()">+</button></span>
+    </p>
+    <ul *ngFor="let note of notes; index as i">
+      <li>
+        <button (click)="showNote(i)">{{ note.title }}</button>
+        <button>X</button>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <input id="title" [formControl]="title" />
+    <input id="description" [formControl]="description" [disabled]="!note" />
+    <button (click)="revert()" [disabled]="!note">Revert</button>
+    <button (click)="save()" [disabled]="!note">Save</button>
+  </div>
+</div>
