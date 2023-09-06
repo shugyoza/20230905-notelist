@@ -12,7 +12,8 @@
   </div>
   <div>
     <input id="title" [formControl]="title" />
-    <input id="description" [formControl]="description" [disabled]="!note" />
+    <textarea id="description" [formControl]="description"></textarea>
+    />
     <button (click)="revert()" [disabled]="!note">Revert</button>
     <button (click)="save()" [disabled]="!note">Save</button>
   </div>
